@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<template
+    name="XposedModuleFreeRestart"
+    description="Creates a new Xposed Module without restart"
+    format="3"
+    minApi="15"
+    minBuildApi="15"
+    revision="4">
+
+    <category value="Other"/>
+
+    <!-- parameter 主要是:效果图中，需要输入的几个设置栏 -->
+    <parameter
+        name="Xposed Mod class"
+        constraints="nonempty|unique|class"
+        default="XposedMod"
+        help="Class that contains Xposed code"
+        id="xposedModClass"
+        type="string"/>
+
+    <parameter
+        name="Xposed Description"
+        constraints="nonempty"
+        help="Description of Xposed Module"
+        id="xposedDescription"
+        type="string"/>
+
+    <parameter
+        name="Package name"
+        constraints="package"
+        default="com.xxx.xxxx.xposed"
+        id="packageName"
+        type="string"/>
+
+    <parameter
+        name="Hooked Package name"
+        constraints="nonempty"
+        default="com.xxxx.xxx.xposed"
+        id="hookPackageName"
+        type="string"/>
+
+    <!-- Module图标 -->
+    <thumbs>
+        <thumb>template_xposed_module.png</thumb>
+    </thumbs>
+
+    <!-- 全局变量 -->
+    <globals file="globals.xml.ftl"/>
+
+    <!-- 需要执行的操作 关键点-->
+    <execute file="recipe.xml.ftl"/>
+
+</template>
